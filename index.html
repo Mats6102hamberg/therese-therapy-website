@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thérèse Nordenström - Legitimerad Psykoterapeut</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c5530;
+            --secondary-color: #8fbc8f;
+            --accent-color: #d4b896;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f8fffe;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, var(--accent-color), #e6d3b0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .header-text .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .therapy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .therapy-card {
+            background: linear-gradient(145deg, var(--bg-light), var(--white));
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .therapy-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .therapy-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .therapy-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .qualifications {
+            background: linear-gradient(135deg, var(--accent-color), #e6d3b0);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .qualifications h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .qualification-list {
+            display: grid;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .qualification-item {
+            background-color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .specialties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .specialty-item {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .specialty-item:hover {
+            border-color: var(--secondary-color);
+            background-color: var(--white);
+        }
+
+        .specialty-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .link-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .link-item a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .image-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .image-item {
+            text-align: center;
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .image-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .image-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .therapy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-circle">TN</div>
+                <div class="header-text">
+                    <h1>Thérèse Nordenström</h1>
+                    <p class="subtitle">Legitimerad Psykoterapeut med Psykodynamisk Inriktning</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#om-mig">Om Mig</a></li>
+                <li><a href="#terapiformer">Terapiformer</a></li>
+                <li><a href="#specialiteter">Specialiteter</a></li>
+                <li><a href="#kontakt">Kontakt & Länkar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="om-mig" class="section">
+                <h2>Välkommen till min praktik</h2>
+                <p class="intro-text">
+                    Som legitimerad psykoterapeut med psykodynamisk inriktning erbjuder jag en trygg plats för 
+                    personlig utveckling och helande. Med gedigen utbildning och mångårig erfarenhet hjälper jag 
+                    människor att utforska sitt inre landskap och skapa positiva förändringar i sina liv.
+                </p>
+
+                <div class="qualifications">
+                    <h3>Min Utbildning & Kompetens</h3>
+                    <div class="qualification-list">
+                        <div class="qualification-item">
+                            <strong>Legitimerad Psykoterapeut</strong> - Utbildad socionom med psykodynamisk inriktning
+                        </div>
+                        <div class="qualification-item">
+                            <strong>2008</strong> - Avslutade psykoterapiutbildning via Göteborgs Psykoterapiinstitut
+                        </div>
+                        <div class="qualification-item">
+                            <strong>2017</strong> - Certifierad Symboldramaterapeut
+                        </div>
+                        <div class="qualification-item">
+                            <strong>2020-2022</strong> - Core-utbildning i Intensive Short-Term Dynamic Psychotherapy (ISTDP)
+                        </div>
+                        <div class="qualification-item">
+                            <strong>Mindfulness</strong> - Instruktör i mindfulness, steg 1, samt kursledare i medkänsla
+                        </div>
+                        <div class="qualification-item">
+                            <strong>Bred Erfarenhet</strong> - Mångårigt arbete inom psykiatrin med ungdomar och vuxna, 
+                            socialtjänsten inom narkomanvård, samt primärvård och terapi med vuxna
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-section">
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=250&fit=crop&auto=format" alt="Terapirum - En lugn och trygg miljö">
+                        <h4>Mitt Terapirum</h4>
+                        <p>En trygg och lugn miljö som skapar förutsättningar för personlig utveckling och helande.</p>
+                    </div>
+                    
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop&auto=format" alt="Mindfulness och meditation">
+                        <h4>Mindfulness & Meditation</h4>
+                        <p>Genom mindfulness lär du dig att vara närvarande och utveckla ett vänligare förhållande till dig själv.</p>
+                    </div>
+
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=250&fit=crop&auto=format" alt="Konstnärligt uttryck och symboler">
+                        <h4>Symboldrama</h4>
+                        <p>Vi använder bilder och symboler från vakendrömmar som sedan visualiseras genom målning och reflektion.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="terapiformer" class="section">
+                <h2>Terapiformer & Metoder</h2>
+                <p class="intro-text">
+                    Jag arbetar med evidensbaserade metoder som hjälper dig att komma i kontakt med dina känslor, 
+                    förstå dina mönster och utveckla nya sätt att leva.
+                </p>
+
+                <div class="therapy-grid">
+                    <div class="therapy-card">
+                        <h3>Psykodynamisk Psykoterapi</h3>
+                        <p>
+                            Få hjälp att utforska ditt inre landskap och undersöka bakomliggande känslor vid ångest 
+                            och depression. Du får ökad förståelse om hur tidigare mönster och emotioner påverkar 
+                            ditt mående idag. Detta ger dig möjlighet att förändra din situation och leva det liv 
+                            du vill leva, genom att ha kontakt med dina känslor och förstå deras ursprung.
+                        </p>
+                    </div>
+
+                    <div class="therapy-card">
+                        <h3>ISTDP - Intensive Short-Term Dynamic Psychotherapy</h3>
+                        <p>
+                            I ISTDP arbetar vi med att ge dig möjlighet att komma i kontakt med dina genuina känslor. 
+                            Vi undersöker de försvar som hindrar dig från att känna sorg, ilska, glädje, skuld och 
+                            nyfikenhet. Fokus ligger på hantering och reglering av ångest som kan väckas när försvaren 
+                            ruckas på. Genom att komma i kontakt med känslorna minskar rädslan för dem.
+                        </p>
+                    </div>
+
+                    <div class="therapy-card">
+                        <h3>Symboldramaterapi</h3>
+                        <p>
+                            En integrativ psykoterapimetod där psykodynamisk grund kompletteras med kognitiv och 
+                            affektteoretisk inriktning. Vi använder bilder och symboler som uppkommer under 
+                            vakendrömmar i avslappnat tillstånd. Du visualiserar inre scener som sedan åskådliggörs 
+                            genom målning, följt av reflektion som möjliggör en förändringsprocess.
+                        </p>
+                    </div>
+
+                    <div class="therapy-card">
+                        <h3>Mindfulness & Medkänsla</h3>
+                        <p>
+                            Som instruktör i mindfulness och medkänsla erbjuder jag både enskilda sessioner och 
+                            gruppkurser. Mindfulness hjälper dig att utveckla närvarande medvetenhet och acceptance, 
+                            medan medkänsloträning stärker din förmåga att ge tröst till dig själv i utsatta situationer.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="specialiteter" class="section">
+                <h2>Vad Jag Kan Hjälpa Dig Med</h2>
+                <p class="intro-text">
+                    Du är välkommen att vända dig till mig för olika typer av upplevelser och utmaningar i livet.
+                </p>
+
+                <div class="specialties">
+                    <div class="specialty-item">
+                        <h4>Nedstämdhet & Depression</h4>
+                        <p>Utforska bakomliggande känslor och mönster</p>
+                    </div>
+                    <div class="specialty-item">
+                        <h4>Oro & Ångest</h4>
+                        <p>Lär dig hantera och reglera ångest på ett hälsosamt sätt</p>
+                    </div>
+                    <div class="specialty-item">
+                        <h4>Stress & Kriser</h4>
+                        <p>Utveckla verktyg för att hantera livets utmaningar</p>
+                    </div>
+                    <div class="specialty-item">
+                        <h4>Låg Självkänsla</h4>
+                        <p>Bygg upp din självkänsla genom ökad självförståelse</p>
+                    </div>
+                    <div class="specialty-item">
+                        <h4>Relationella Mönster</h4>
+                        <p>Förstå och förändra mönster i dina relationer</p>
+                    </div>
+                    <div class="specialty-item">
+                        <h4>Personlig Utveckling</h4>
+                        <p>Stöd i din resa mot större självkännedom</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="kontakt" class="section">
+                <div class="links-section">
+                    <h2>Kontakt & Mer Information</h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">
+                        Här hittar du länkar till relevanta organisationer och mer information om de terapiformer jag arbetar med.
+                    </p>
+                    
+                    <div class="links-grid">
+                        <div class="link-item">
+                            <h4>Psykoterapicentrum</h4>
+                            <a href="https://www.psykoterapicentrum.se" target="_blank" rel="noopener">Läs mer</a>
+                        </div>
+                        <div class="link-item">
+                            <h4>Symboldramaföreningen</h4>
+                            <a href="https://www.symboldrama.se" target="_blank" rel="noopener">Besök webbsida</a>
+                        </div>
+                        <div class="link-item">
+                            <h4>Mind</h4>
+                            <a href="https://mind.se" target="_blank" rel="noopener">Information</a>
+                        </div>
+                        <div class="link-item">
+                            <h4>Mindfulness</h4>
+                            <a href="https://mindfulnesscenter.se" target="_blank" rel="noopener">Mer om mindfulness</a>
+                        </div>
+                        <div class="link-item">
+                            <h4>Psykodynamiskt.nu</h4>
+                            <a href="https://psykodynamiskt.nu" target="_blank" rel="noopener">Resurser</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Thérèse Nordenström - Legitimerad Psykoterapeut</p>
+            <p style="margin-top: 0.5rem; opacity: 0.8;">Professionell terapi med fokus på din personliga utveckling</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add gentle animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
